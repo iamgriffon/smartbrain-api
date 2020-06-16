@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
-const knex = require('knex');
 const { json } = require('body-parser');
 const register = require('./Controllers/register');
 const signin = require('./Controllers/signin');
@@ -10,16 +9,11 @@ const image = require('./Controllers/image');
 const profile = require('./Controllers/profileid');
 const app = express();
 const PORT = process.env.PORT;
-const { Client } = require('pg');
 
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+const db = require('knex')({
+  client: 'pg',
+  connection: process.env.DATABASE_URL
 });
-
-db.connect();
 
 
 app.use(bodyParser.json());
