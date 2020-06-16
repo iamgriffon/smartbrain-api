@@ -25,7 +25,7 @@ const db = knex({
 app.use(bodyParser.json());
 app.use(cors());
 // app.listen(3000, () => {console.log(`You're now running on port 3000`) });
-app.get('/', (req, res) => {res.send("It's working")})
+app.get('/', (req, res) => {return res.send("It's working")})
 app.post('/signin', (req, res) => {signin.handleSignIn(req, res, db, bcrypt)})
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 app.get('/profile/:id', (req, res)=> {profile.idHandler(req, res, db)})
