@@ -22,7 +22,7 @@ const db = knex({
 
 app.use(bodyParser.json());
 app.use(cors());
-app.listen(3000, () =>{console.log('App is running on port 3000');}) //designando a porta 3000 para o server
+app.listen(process.env.PORT, () =>{console.log(`App is running on port ${PORT}`);}) //designando a porta 3000 para o server
 app.get('/', (req, res) => {res.send(database.users)})
 app.post('/signin', (req, res) => {signin.handleSignIn(req, res, db, bcrypt)})
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
