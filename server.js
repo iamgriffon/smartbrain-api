@@ -20,7 +20,6 @@ const db = knex({
       },
     }
   });
-  db.connect();
 
 const PORT = process.env.PORT;
 
