@@ -30,7 +30,7 @@ app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcryp
 app.get('/profile/:id', (req, res)=> {profile.idHandler(req, res, db)})
 app.put('/image', (req, res) => {image.imageHandler(req, res, db)})
 app.post('/imageurl',(req, res) =>{image.handleApiCall(req, res)})
-app.listen(PORT || 3000, () =>{console.log(`App is running on port ${PORT}`)})
+app.listen(PORT, () =>{console.log(`App is running on port ${PORT}`)})
 // Agora vamos criar a API, com os 4 metodos (GET, PUT, POST E DELETE)
 
 /* ROTAS QUE SERÃO USADAS 
