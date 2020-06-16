@@ -24,14 +24,13 @@ const PORT = process.env.PORT;
 app.use(bodyParser.json());
 app.use(cors());
 // app.listen(3000, () => {console.log(`You're now running on port 3000`) });
-app.listen(PORT || 3000, () =>{console.log(`App is running on port ${PORT}`)})
 app.get('/', (req, res) => {res.send("It's working")})
 app.post('/signin', (req, res) => {signin.handleSignIn(req, res, db, bcrypt)})
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 app.get('/profile/:id', (req, res)=> {profile.idHandler(req, res, db)})
 app.put('/image', (req, res) => {image.imageHandler(req, res, db)})
 app.post('/imageurl',(req, res) =>{image.handleApiCall(req, res)})
-
+app.listen(PORT || 3000, () =>{console.log(`App is running on port ${PORT}`)})
 // Agora vamos criar a API, com os 4 metodos (GET, PUT, POST E DELETE)
 
 /* ROTAS QUE SERÃO USADAS 
