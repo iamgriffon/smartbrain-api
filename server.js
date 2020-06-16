@@ -9,7 +9,7 @@ const signin = require('./Controllers/signin');
 const image = require('./Controllers/image');
 const profile = require('./Controllers/profileid');
 const app = express();
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
+
 
 const db = knex({
     client: 'pg',
