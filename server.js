@@ -9,17 +9,18 @@ const signin = require('./Controllers/signin');
 const image = require('./Controllers/image');
 const profile = require('./Controllers/profileid');
 const app = express();
-
+const DATABASE_URL = process.env.DATABASE_URL;
+const PORT = process.env.PORT;
 
 const db = knex({
     client: 'pg',
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DATABASE_URL,
       ssl: true
     }
   });
 
-const PORT = process.env.PORT;
+
 
 app.use(bodyParser.json());
 app.use(cors());
